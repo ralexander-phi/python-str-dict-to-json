@@ -1,8 +1,10 @@
+[![Build Status](https://travis-ci.com/ralexander-phi/python-str-dict-to-json.svg?branch=main)](https://travis-ci.com/ralexander-phi/python-str-dict-to-json)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5618630ed7104ee3b27f/maintainability)](https://codeclimate.com/github/ralexander-phi/python-str-dict-to-json/maintainability)
+
+
 Convert the string representation of a Python dictionary to JSON
 
-You've got a Python dictionary that was printed to a log file.  You want to run it through JSON tools, like [jq](https://stedolan.github.io/jq/) but it's not actually JSON.
-
-This command line tool allows you convert to JSON.
+You've got a Python dictionary that was printed to a log file.  You want to run it through JSON tools, like [jq](https://stedolan.github.io/jq/) but it's not actually JSON. This command line tool allows you to convert that file to JSON.
 
 
 ## Why?
@@ -55,3 +57,11 @@ $ python3 -m pydict2json --literal "{'a': None}"
 {"a": null}
 ```
 
+and supports per-line processing to [JSON Lines format](https://jsonlines.org/):
+
+```
+$ python3 -m pydict2json --lines --input-file out.log
+{"a": 1}
+{"b": 2}
+{"c": 3}
+```
